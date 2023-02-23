@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'dart:convert';
 import 'package:api/models/model1.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: samplepost.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    height: 120,
                     color: Colors.blueGrey,
                     margin: EdgeInsets.all(10),
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -40,13 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             .text
                             .bold
                             .xl2
-                            .maxLines(1)
                             .make(),
-                        "Body:  ${samplepost[index].body}"
-                            .text
-                            .maxLines(1)
-                            .xl2
-                            .make(),
+                        "Body:  ${samplepost[index].body}".text.xl2.make(),
                       ],
                     ),
                   );
