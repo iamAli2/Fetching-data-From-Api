@@ -35,7 +35,9 @@ class _MyHomePage2State extends State<MyHomePage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: "Api Part3".text.xl3.make(),
+      ),
       body: FutureBuilder(
           future: getdata(),
           builder: (context, snapshot) {

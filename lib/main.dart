@@ -1,4 +1,5 @@
 import 'package:api/pages/MyHomePage2.dart';
+import 'package:api/pages/MyhomePage3.dart';
 import 'package:api/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,12 +20,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.home2,
+      initialRoute: MyRoutes.home3,
       routes: {
         MyRoutes.home1: (context) => MyHomePage(),
         MyRoutes.home2: (context) => MyHomePage2(),
+        MyRoutes.home3: (context) => Home3(),
       },
     );
   }

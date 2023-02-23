@@ -13,43 +13,49 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Postdata> samplepost = [];
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: getData(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                itemCount: samplepost.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    color: Colors.blueGrey,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        "User_Id: ${samplepost[index].userId}"
-                            .text
-                            .bold
-                            .xl2
-                            .make(),
-                        "Id:  ${samplepost[index].id}".text.bold.xl2.make(),
-                        "Title:  ${samplepost[index].title}"
-                            .text
-                            .bold
-                            .xl2
-                            .make(),
-                        "Body:  ${samplepost[index].body}".text.xl2.make(),
-                      ],
-                    ),
-                  );
-                });
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+    return Scaffold(
+      appBar: AppBar(
+        title: "Api Part1".text.xl3.make(),
+      ),
+      body: FutureBuilder(
+          future: getData(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: samplepost.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      color: Colors.blueGrey,
+                      margin: EdgeInsets.all(10),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          "User_Id: ${samplepost[index].userId}"
+                              .text
+                              .bold
+                              .xl2
+                              .make(),
+                          "Id:  ${samplepost[index].id}".text.bold.xl2.make(),
+                          "Title:  ${samplepost[index].title}"
+                              .text
+                              .bold
+                              .xl2
+                              .make(),
+                          "Body:  ${samplepost[index].body}".text.xl2.make(),
+                        ],
+                      ),
+                    );
+                  });
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
+    );
   }
 
   Future<List<Postdata>> getData() async {
